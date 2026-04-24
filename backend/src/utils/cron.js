@@ -4,8 +4,6 @@ const { Op } = require("sequelize");
 
 const runCron = () => {
   setInterval(async () => {
-    console.log("Running background job...");
-
     const overdueTasks = await Task.findAll({
       where: {
         dueDate: {

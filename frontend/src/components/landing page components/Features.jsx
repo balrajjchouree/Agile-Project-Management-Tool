@@ -45,19 +45,16 @@ export default function Features() {
         </h2>
       </div>
 
-      {/* Features Grid */}
       <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
         {features.map((feature, i) => (
           <div
             key={i}
             className="flex gap-5 items-start p-6 rounded-xl bg-white/60 backdrop-blur-md border border-gray-200 hover:bg-white hover:shadow-lg hover:-translate-y-1 transition duration-300"
           >
-            {/* Icon */}
             <div className="bg-gradient-to-r from-orange-500 to-pink-500 text-white p-3 rounded-lg text-xl">
               {feature.icon}
             </div>
 
-            {/* Content */}
             <div>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
                 {feature.title}

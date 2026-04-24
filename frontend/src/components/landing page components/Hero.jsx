@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Hero() {
   return (
     <div className="text-center py-28 px-6">
@@ -7,13 +9,17 @@ export default function Hero() {
       </h1>
 
       <p className="mt-6 text-gray-600 max-w-2xl mx-auto">
-        Plan, track, and collaborate seamlessly with your team using a simple and powerful workflow.
+        Plan, track, and collaborate seamlessly with your team using a simple
+        and powerful workflow.
       </p>
 
       <div className="mt-8 flex justify-center gap-4">
-        <button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold transition">
+        <Link
+          to="/login"
+          className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold transition"
+        >
           Get Started
-        </button>
+        </Link>
       </div>
     </div>
   );
