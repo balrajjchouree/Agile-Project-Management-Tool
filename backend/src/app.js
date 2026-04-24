@@ -5,6 +5,7 @@ const app = express();
 
 const authRoutes = require("./routes/auth.routes");
 const workspaceRoutes = require("./routes/workspace.routes");
+const projectRoutes = require("./routes/project.route");
 
 app.use(cors());
 app.use(express.json());
@@ -15,5 +16,6 @@ app.get("/", (req, res) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/workspaces", workspaceRoutes);
+app.use("/api/projects", projectRoutes);
 
 module.exports = app;
