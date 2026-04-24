@@ -1,0 +1,33 @@
+# Node modules (both frontend & backend)
+node_modules/
+
+# Environment variables
+.env
+.env.*
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build folders
+dist/
+build/
+
+# Vite / React
+frontend/node_modules/
+frontend/dist/
+
+# Backend specific
+backend/node_modules/
+backend/database.sqlite
+
+# VS Code
+.vscode/
+
+# Optional
+coverage/
