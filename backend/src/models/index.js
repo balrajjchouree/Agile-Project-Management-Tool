@@ -2,6 +2,8 @@ const User = require("./user.model");
 const Workspace = require("./workspace.model");
 const Project = require("./project.model");
 const UserStory = require("./userStory.model");
+const Task = require("./task.model");
+const Notification = require("./notification.model");
 
 // User -> Workspace
 Workspace.belongsTo(User, { foreignKey: "ownerId" });
@@ -19,4 +21,8 @@ UserStory.belongsTo(Project, { foreignKey: "projectId" });
 UserStory.hasMany(Task, { foreignKey: "userStoryId" });
 Task.belongsTo(UserStory, { foreignKey: "userStoryId" });
 
-module.exports = { User, Workspace, Project, UserStory };
+// Task -> Notification
+Task.hasMany(Notification, { foreignKey: "taskId" });
+Notification.belongsTo(Task, { foreignKey: "taskId" });
+
+module.exports = { User, Workspace, Project, UserStory, Notification };
