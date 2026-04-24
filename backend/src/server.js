@@ -9,7 +9,7 @@ const { connectDB, sequelize } = require("./config/database");
 const PORT = process.env.PORT || 5000;
 
 connectDB();
-sequelize.sync();
+sequelize.sync({alter: true});
 
 const server = http.createServer(app);
 
