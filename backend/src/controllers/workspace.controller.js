@@ -2,13 +2,26 @@ const Workspace = require("../models/workspace.model");
 
 exports.createWorkspace = async (req, res) => {
   try {
-    const { name, slug, logo } = req.body;
+    const { name } = req.body;
+
+    let baseSlug = name.toLowerCase().replace(/\s+/g, "-");
+    let slug = baseSlug;
+
+    let count = 1;
+
+    while (true) {
+      const existing = await Workspace.findOne({ where: { slug } });
+
+      if (!existing) break;
+
+      slug = `${baseSlug}-${count}`;
+      count++;
+    }
 
     const workspace = await Workspace.create({
       name,
       slug,
-      logo,
-      ownerId: req.user?.id
+      ownerId: req.user.id,
     });
 
     res.json(workspace);
@@ -21,7 +34,7 @@ exports.createWorkspace = async (req, res) => {
 exports.getWorkspaces = async (req, res) => {
   try {
     const workspaces = await Workspace.findAll({
-      where: { ownerId: req.user.id } 
+      where: { ownerId: req.user.id },
     });
 
     res.json(workspaces);

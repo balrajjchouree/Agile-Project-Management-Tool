@@ -18,7 +18,7 @@ export default function Login() {
       localStorage.setItem("token", res.data.token);
       toast.success("Login Successful!");
       setTimeout(() => {
-        navigate("/home");
+        navigate("/check-workspace");
       }, 800);
     } catch (err) {
       toast.error(err?.response?.data?.message || "Login failed ❌");

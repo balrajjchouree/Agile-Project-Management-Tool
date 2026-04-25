@@ -8,42 +8,47 @@ exports.getDashboard = async (req, res) => {
     const userId = req.user.id;
 
     const workspaces = await Workspace.findAll({
-      where: { ownerId: userId }
+      where: { ownerId: userId },
     });
 
-    const workspaceIds = workspaces.map(w => w.id);
+    const workspaceIds = workspaces.map((w) => w.id);
 
     const projects = await Project.findAll({
-      where: { workspaceId: workspaceIds }
+      where: { workspaceId: workspaceIds },
     });
 
-    const projectIds = projects.map(p => p.id);
+    const projectIds = projects.map((p) => p.id);
 
     const totalProjects = projects.length;
 
     const completedProjects = await Project.count({
       where: {
         workspaceId: workspaceIds,
-        status: "completed"
-      }
+        status: "completed",
+      },
     });
 
-    const totalTasks = await Task.count();
+    const totalTasks = await Task.count({
+      where: {
+        userStoryId: {
+          [Op.in]: projectIds,
+        },
+      },
+    });
 
     const overdueTasks = await Task.count({
       where: {
         dueDate: { [Op.lt]: new Date() },
-        status: { [Op.ne]: "done" }
-      }
+        status: { [Op.ne]: "done" },
+      },
     });
 
     res.json({
       totalProjects,
       completedProjects,
       totalTasks,
-      overdueTasks
+      overdueTasks,
     });
-
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

@@ -1,10 +1,10 @@
-import CTA from "../components/landing page components/CTA";
-import DashboardPreview from "../components/landing page components/DashboardPreview";
-import FAQ from "../components/landing page components/FAQ";
-import Features from "../components/landing page components/Features";
-import Footer from "../components/landing page components/Footer";
-import Hero from "../components/landing page components/Hero";
-import Navbar from "../components/landing page components/Navbar";
+import CTA from "../components/landing page/CTA";
+import DashboardPreview from "../components/landing page/DashboardPreview";
+import FAQ from "../components/landing page/FAQ";
+import Features from "../components/landing page/Features";
+import Footer from "../components/landing page/Footer";
+import Hero from "../components/landing page/Hero";
+import Navbar from "../components/landing page/Navbar";
 
 export default function LandingPage() {
   return (
