@@ -12,7 +12,7 @@ Built with modern technologies, it demonstrates real-world application developme
 
 ---
 
-**Demo Link** : https://www.veed.io/view/1aea9a42-f435-4726-a391-93947ac15273?source=editor&panel=share
+**Demo Link** : https://www.veed.io/view/3ee5411a-a72a-4726-8629-9a2c84f3835d?source=editor&panel=share
 
 ---
 
